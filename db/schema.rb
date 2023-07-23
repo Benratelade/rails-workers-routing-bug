@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_07_23_042248) do
+ActiveRecord::Schema[7.0].define(version: 2023_07_23_095138) do
   create_table "action_text_rich_texts", force: :cascade do |t|
     t.string "name", null: false
     t.text "body"
@@ -52,6 +52,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_23_042248) do
   create_table "rich_text_examples", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "content_from_sidekiq"
+    t.string "generated_content"
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
