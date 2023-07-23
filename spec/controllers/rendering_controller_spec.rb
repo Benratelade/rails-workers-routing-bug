@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require 'rails_helper'
+require "rails_helper"
 
 describe RenderingController, type: :controller do
   describe "direct" do
@@ -13,9 +13,9 @@ describe RenderingController, type: :controller do
 
     it "finds and assigns the first Rich Text Example and renders it immediately" do
       expect(RichTextExample).to receive(:first)
-      
+
       get(
-        :direct
+        :direct,
       )
 
       expect(assigns(:rich_text_example))
@@ -27,14 +27,13 @@ describe RenderingController, type: :controller do
       expect(@rich_text_example).to receive(:save)
 
       get(
-        :direct
+        :direct,
       )
     end
-
   end
 
   describe "async" do
-    before do 
+    before do
       @first_rich_text_example = double("rich text example", id: "rich-text-example-id")
       allow(RichTextExample).to receive(:first).and_return(@first_rich_text_example)
       allow(GenerateHtmlJob).to receive(:perform_async)
@@ -42,9 +41,9 @@ describe RenderingController, type: :controller do
 
     it "finds and assigns the first Rich Text Example and renders it immediately" do
       expect(RichTextExample).to receive(:first)
-      
+
       get(
-        :async
+        :async,
       )
 
       expect(assigns(:rich_text_example))
@@ -56,7 +55,7 @@ describe RenderingController, type: :controller do
       )
 
       get(
-        :async
+        :async,
       )
     end
   end

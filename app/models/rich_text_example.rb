@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class RichTextExample < ApplicationRecord
   has_rich_text :content
   # Image by catalyststuf on Freepik

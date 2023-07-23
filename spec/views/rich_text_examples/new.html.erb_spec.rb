@@ -3,7 +3,7 @@
 require "rails_helper"
 
 describe "rich_text_examples/new.html.erb" do
-  before do 
+  before do
     @rich_text_example = RichTextExample.new
   end
 
